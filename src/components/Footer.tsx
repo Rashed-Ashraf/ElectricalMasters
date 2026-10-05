@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 export const Footer: React.FC = () => {
   return (
@@ -69,11 +70,13 @@ export const Footer: React.FC = () => {
               Quick Links
             </span>
             <nav className="flex flex-col gap-2 text-[13px] text-[#c3e8ff]">
-              <a href="#hero" className="hover:text-white transition-colors">Home</a>
-              <a href="#products-section" className="hover:text-white transition-colors">Products Catalog</a>
-              <a href="#services-section" className="hover:text-white transition-colors">Electrical Services</a>
-              <a href="#customers-section" className="hover:text-white transition-colors">Valued Clients</a>
-              <a href="#contact-section" className="hover:text-white transition-colors">Contact Engineering</a>
+              <Link href="/#hero" className="hover:text-white transition-colors">Home</Link>
+              <Link href="/#products-section" className="hover:text-white transition-colors">Products Catalog</Link>
+              <Link href="/#services-section" className="hover:text-white transition-colors">Electrical Services</Link>
+              <Link href="/#customers-section" className="hover:text-white transition-colors">Valued Clients</Link>
+              <Link href="/#reviews-section" className="hover:text-white transition-colors">Client Reviews</Link>
+              <Link href="/#faq-section" className="hover:text-white transition-colors">Frequently Asked Questions</Link>
+              <Link href="/#contact-section" className="hover:text-white transition-colors">Contact Engineering</Link>
             </nav>
           </div>
 
@@ -93,10 +96,10 @@ export const Footer: React.FC = () => {
                 +92 333 4466489
               </a>
               <a
-                href="mailto:shahid.iqbal@emswitchgear.com"
+                href="mailto:emswitchgears@gmail.com"
                 className="hover:text-white transition-colors font-medium underline underline-offset-4 text-[#0098da] break-all"
               >
-                shahid.iqbal@emswitchgear.com
+                emswitchgears@gmail.com
               </a>
             </div>
           </div>

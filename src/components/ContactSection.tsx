@@ -269,10 +269,10 @@ export const ContactSection: React.FC = () => {
                     Email Address
                   </span>
                   <a
-                    href="mailto:shahid.iqbal@emswitchgear.com"
+                    href="mailto:emswitchgears@gmail.com"
                     className="text-[#0098da] hover:text-white underline underline-offset-4 text-[14px] font-medium break-all"
                   >
-                    shahid.iqbal@emswitchgear.com
+                    emswitchgears@gmail.com
                   </a>
                 </div>
               </div>

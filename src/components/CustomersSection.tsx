@@ -177,9 +177,6 @@ export const CustomersSection: React.FC = () => {
       {/* Bottom Summary Pill */}
       <div className="mt-8 flex items-center justify-center px-4">
         <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white border border-[#e1f0f8] rounded-full shadow-sm text-[#003850] font-title text-[13px] font-bold">
-          <div className="w-5 h-5 rounded bg-white flex items-center justify-center border border-slate-200">
-            <img src={COMPANY_LOGO_URL} alt="Electrical Masters Logo" className="w-full h-full object-contain" />
-          </div>
           <span className="w-2 h-2 rounded-full bg-[#0098da] animate-pulse" />
           <span>Over 75+ Major Industrial & Commercial Clients Nationwide</span>
         </div>
@@ -191,10 +188,7 @@ export const CustomersSection: React.FC = () => {
 // Subcomponent for individual client pills in marquee
 const ClientBadge: React.FC<{ name: string }> = ({ name }) => {
   return (
-    <div className="flex items-center gap-3 px-4 py-2.5 bg-white border border-[#e1f0f8] rounded-xl shadow-[0_2px_8px_rgba(0,77,109,0.04)] hover:shadow-md hover:border-[#0098da] transition-all cursor-default group flex-shrink-0">
-      <div className="w-8 h-8 rounded-lg bg-[#e1f2fb] p-1 border border-[#0098da]/15 group-hover:bg-[#0098da]/10 flex items-center justify-center transition-colors flex-shrink-0">
-        <img src={COMPANY_LOGO_URL} alt="EM Switchgear Logo" className="w-full h-full object-contain" />
-      </div>
+    <div className="flex items-center px-4 py-2.5 bg-white border border-[#e1f0f8] rounded-xl shadow-[0_2px_8px_rgba(0,77,109,0.04)] hover:shadow-md hover:border-[#0098da] transition-all cursor-default group flex-shrink-0">
       <span className="font-title text-[#00283d] text-[13px] sm:text-[14px] font-semibold whitespace-nowrap group-hover:text-[#0098da] transition-colors">
         {name}
       </span>

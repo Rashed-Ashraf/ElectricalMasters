@@ -16,6 +16,7 @@
 # Misc
 .DS_Store
 *.pem
+Create_website_video_from_pictures_*.mp4
 
 # Debug logs
 npm-debug.log*

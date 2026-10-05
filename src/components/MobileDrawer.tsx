@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
+import { Home, Zap, Wrench, MessageSquare, HelpCircle, PhoneCall, Send, X } from 'lucide-react';
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -50,57 +52,73 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
               onClick={onClose}
               className="w-10 h-10 flex items-center justify-center text-[#c3e8ff] hover:text-white rounded-full hover:bg-white/10 transition-colors"
             >
-              <span className="material-symbols-outlined text-[24px]">close</span>
+              <X className="w-6 h-6" />
             </button>
           </div>
 
           {/* Navigation Links */}
           <nav className="flex flex-col gap-1.5 font-title">
-            <a
-              href="#hero"
+            <Link
+              href="/#hero"
               onClick={onClose}
               className="flex items-center gap-3 px-3.5 py-3 rounded-lg text-white bg-white/10 font-semibold text-[14px]"
             >
-              <span className="material-symbols-outlined text-[20px] text-[#0098da]">home</span>
+              <Home className="w-5 h-5 text-[#0098da]" />
               Home
-            </a>
-            <a
-              href="#products-section"
+            </Link>
+            <Link
+              href="/#products-section"
               onClick={onClose}
               className="flex items-center gap-3 px-3.5 py-3 rounded-lg text-[#c3e8ff] hover:text-white hover:bg-white/5 transition-colors font-medium text-[14px]"
             >
-              <span className="material-symbols-outlined text-[20px] text-[#0098da]">bolt</span>
+              <Zap className="w-5 h-5 text-[#0098da]" />
               Our Products
-            </a>
-            <a
-              href="#services-section"
+            </Link>
+            <Link
+              href="/#services-section"
               onClick={onClose}
               className="flex items-center gap-3 px-3.5 py-3 rounded-lg text-[#c3e8ff] hover:text-white hover:bg-white/5 transition-colors font-medium text-[14px]"
             >
-              <span className="material-symbols-outlined text-[20px] text-[#0098da]">build</span>
+              <Wrench className="w-5 h-5 text-[#0098da]" />
               Our Services
-            </a>
-            <a
-              href="#contact-section"
+            </Link>
+            <Link
+              href="/#reviews-section"
               onClick={onClose}
               className="flex items-center gap-3 px-3.5 py-3 rounded-lg text-[#c3e8ff] hover:text-white hover:bg-white/5 transition-colors font-medium text-[14px]"
             >
-              <span className="material-symbols-outlined text-[20px] text-[#0098da]">contact_phone</span>
+              <MessageSquare className="w-5 h-5 text-[#0098da]" />
+              Client Reviews
+            </Link>
+            <Link
+              href="/#faq-section"
+              onClick={onClose}
+              className="flex items-center gap-3 px-3.5 py-3 rounded-lg text-[#c3e8ff] hover:text-white hover:bg-white/5 transition-colors font-medium text-[14px]"
+            >
+              <HelpCircle className="w-5 h-5 text-[#0098da]" />
+              FAQ
+            </Link>
+            <Link
+              href="/#contact-section"
+              onClick={onClose}
+              className="flex items-center gap-3 px-3.5 py-3 rounded-lg text-[#c3e8ff] hover:text-white hover:bg-white/5 transition-colors font-medium text-[14px]"
+            >
+              <PhoneCall className="w-5 h-5 text-[#0098da]" />
               Contact Us
-            </a>
+            </Link>
           </nav>
         </div>
 
         {/* Drawer Bottom CTA */}
         <div className="p-5 flex flex-col gap-3 bg-[#003850]">
-          <a
-            href="#contact-section"
+          <Link
+            href="/#contact-section"
             onClick={onClose}
             className="w-full h-11 flex items-center justify-center gap-2 bg-[#0098da] text-white font-title text-[14px] font-bold rounded-lg shadow-md hover:bg-[#0084bd] transition-all"
           >
-            <span className="material-symbols-outlined text-[18px]">send</span>
+            <Send className="w-4 h-4" />
             Request Quote
-          </a>
+          </Link>
           <p className="font-technical text-[#98cded] text-center text-[10px] uppercase tracking-widest">
             Est. 2004 • Lahore, Pakistan
           </p>
@@ -109,3 +127,4 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) =
     </div>
   );
 };
+

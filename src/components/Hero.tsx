@@ -5,21 +5,35 @@ import { ArrowRight, CheckCircle2, Zap } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-[#002b40]" id="hero">
-      <div className="relative w-full min-h-[580px] sm:min-h-[620px] flex flex-col justify-center">
-        {/* Background Image - Right Side Highlight */}
-        <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwl1_Vut92Af4j_fIIv6EsB5tDz0csU3rGQ73CH-5cpwt2Uw533v3rmQEElPREtS83KEWK41PvV6rQxZM14miC6CRL_vuqoBU07jOfYWO6OlSpGhuNFDPcau0DOf5M3gMS9VfMMyFT4lomovJt6KOpb1DKavVHxifCaMcJrY09MlRyVGSeyZ58ZDDH9sXYhTvuTnBaQ6yNWL9_fzb_AvPkvyAUJaYnAGHwqyk7z_Zx3KuEFXM-xsbb"
-          alt="High Voltage Switchgear and Power Distribution System"
-          className="absolute inset-0 w-full h-full object-cover object-right md:object-center brightness-[0.7]"
-        />
-        
-        {/* Gradient Overlay: Deep left backdrop for readability, transparent right side to reveal switchgear background */}
+    <section className="relative w-full overflow-hidden bg-[#03364f]" id="hero">
+      <div className="relative w-full min-h-[580px] sm:min-h-[640px] flex flex-col justify-center">
+        {/* Background Video - Muted Ambient Presentation */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          disablePictureInPicture
+          controlsList="nodownload noplaybackrate"
+          poster="https://lh3.googleusercontent.com/aida-public/AB6AXuCwl1_Vut92Af4j_fIIv6EsB5tDz0csU3rGQ73CH-5cpwt2Uw533v3rmQEElPREtS83KEWK41PvV6rQxZM14miC6CRL_vuqoBU07jOfYWO6OlSpGhuNFDPcau0DOf5M3gMS9VfMMyFT4lomovJt6KOpb1DKavVHxifCaMcJrY09MlRyVGSeyZ58ZDDH9sXYhTvuTnBaQ6yNWL9_fzb_AvPkvyAUJaYnAGHwqyk7z_Zx3KuEFXM-xsbb"
+          className="absolute inset-0 w-full h-full object-cover object-center brightness-[0.85]"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          {/* Fallback image if video is not supported */}
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwl1_Vut92Af4j_fIIv6EsB5tDz0csU3rGQ73CH-5cpwt2Uw533v3rmQEElPREtS83KEWK41PvV6rQxZM14miC6CRL_vuqoBU07jOfYWO6OlSpGhuNFDPcau0DOf5M3gMS9VfMMyFT4lomovJt6KOpb1DKavVHxifCaMcJrY09MlRyVGSeyZ58ZDDH9sXYhTvuTnBaQ6yNWL9_fzb_AvPkvyAUJaYnAGHwqyk7z_Zx3KuEFXM-xsbb"
+            alt="High Voltage Switchgear and Power Distribution System"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </video>
+
+        {/* Gradient Overlay: Balanced backdrop with reduced opacity */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(0, 34, 51, 0.96) 0%, rgba(0, 43, 64, 0.88) 45%, rgba(0, 56, 80, 0.45) 75%, rgba(0, 61, 87, 0.15) 100%), linear-gradient(180deg, rgba(0, 34, 51, 0.6) 0%, transparent 40%, rgba(0, 34, 51, 0.95) 100%)',
+              'linear-gradient(90deg, rgba(2, 44, 66, 0.45) 0%, rgba(3, 56, 82, 0.30) 45%, rgba(4, 72, 104, 0.10) 75%, rgba(6, 85, 120, 0) 100%), linear-gradient(180deg, rgba(2, 44, 66, 0.10) 0%, transparent 40%, rgba(2, 44, 66, 0.30) 100%)',
           }}
         />
 
@@ -74,7 +88,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Quote Banner */}
-      <div className="w-full bg-[#001f30] px-4 sm:px-8 py-3.5 border-t border-white/10 relative z-20">
+      <div className="w-full bg-[#012538] px-4 sm:px-8 py-3.5 border-t border-white/10 relative z-20">
         <div className="max-w-7xl mx-auto flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-[#0098da]/25 text-[#0098da] flex items-center justify-center flex-shrink-0">
             <Zap className="w-5 h-5 text-[#0098da]" />
@@ -93,3 +107,5 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+
+

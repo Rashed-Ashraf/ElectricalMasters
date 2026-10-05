@@ -8,6 +8,8 @@ export interface SendEmailInput {
   phone: string;
   company?: string;
   message: string;
+  productTitle?: string;
+  subject?: string;
 }
 
 export interface SendEmailResponse {
@@ -26,6 +28,8 @@ export async function sendEmail(
     let phone = '';
     let company = '';
     let message = '';
+    let productTitle = '';
+    let subject = '';
 
     if (input instanceof FormData) {
       name = (input.get('name') as string) || '';
@@ -33,12 +37,16 @@ export async function sendEmail(
       phone = (input.get('phone') as string) || '';
       company = (input.get('company') as string) || '';
       message = (input.get('message') as string) || '';
+      productTitle = (input.get('productTitle') as string) || '';
+      subject = (input.get('subject') as string) || '';
     } else {
       name = input.name || '';
       email = input.email || '';
       phone = input.phone || '';
       company = input.company || '';
       message = input.message || '';
+      productTitle = input.productTitle || '';
+      subject = input.subject || '';
     }
 
     // Clean strings
@@ -47,13 +55,16 @@ export async function sendEmail(
     phone = phone.trim();
     company = company.trim();
     message = message.trim();
+    productTitle = productTitle.trim();
+    subject = subject.trim();
 
     // Debug Log
-    console.log('[SendEmail Action] Processing contact form submission:', {
+    console.log('[SendEmail Action] Processing form submission:', {
       name,
       email,
       phone,
       company: company || 'N/A',
+      productTitle: productTitle || 'N/A',
       messageLength: message.length,
     });
 
@@ -101,6 +112,12 @@ export async function sendEmail(
       timeStyle: 'medium',
     });
 
+    const emailSubject =
+      subject ||
+      (productTitle
+        ? `Product Inquiry: ${productTitle} - Electrical Masters`
+        : 'New Inquiry from Electrical Masters Website');
+
     // 3. Construct HTML Body
     const htmlBody = `
       <!DOCTYPE html>
@@ -127,11 +144,18 @@ export async function sendEmail(
           <div class="container">
             <div class="header">
               <h1>Electrical Masters Switchgear</h1>
-              <p>New Website Inquiry</p>
+              <p>${productTitle ? `Product Inquiry: ${productTitle}` : 'New Website Inquiry'}</p>
             </div>
             <div class="content">
-              <div class="section-title">Customer Information</div>
+              <div class="section-title">Inquiry Details</div>
               <table class="data-table">
+                ${productTitle
+        ? `<tr>
+                  <td class="label">Product / Model:</td>
+                  <td class="value" style="color: #0098da; font-weight: 700;">${productTitle}</td>
+                </tr>`
+        : ''
+      }
                 <tr>
                   <td class="label">Customer Name:</td>
                   <td class="value">${name}</td>
@@ -150,7 +174,7 @@ export async function sendEmail(
                 </tr>
               </table>
 
-              <div class="section-title">Customer Message</div>
+              <div class="section-title">Requirements &amp; Message</div>
               <div class="message-box">${message}</div>
             </div>
             <div class="footer">
@@ -162,14 +186,14 @@ export async function sendEmail(
       </html>
     `;
 
-    const textBody = `New Inquiry from Electrical Masters Website\n\nCustomer Name: ${name}\nCustomer Email: ${email}\nCustomer Phone: ${phone}\nCompany: ${company || 'N/A'}\nTimestamp: ${timestamp}\n\nCustomer Message:\n${message}`;
+    const textBody = `${emailSubject}\n\nCustomer Name: ${name}\nCustomer Email: ${email}\nCustomer Phone: ${phone}\nCompany: ${company || 'N/A'}${productTitle ? `\nProduct: ${productTitle}` : ''}\nTimestamp: ${timestamp}\n\nRequirements / Message:\n${message}`;
 
     // 4. Send Email via Resend
     const { data, error } = await resend.emails.send({
       from: 'Electrical Masters Switchgear <onboarding@resend.dev>',
       to: [recipientEmail],
       replyTo: email,
-      subject: 'New Inquiry from Electrical Masters Website',
+      subject: emailSubject,
       html: htmlBody,
       text: textBody,
     });

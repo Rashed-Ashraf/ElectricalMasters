@@ -7,6 +7,8 @@ import { Hero } from '@/components/Hero';
 import { ProductsSection } from '@/components/ProductsSection';
 import { ServicesSection } from '@/components/ServicesSection';
 import { CustomersSection } from '@/components/CustomersSection';
+import { ReviewsSection } from '@/components/ReviewsSection';
+import { FaqSection } from '@/components/FaqSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 import { BottomNav } from '@/components/BottomNav';
@@ -28,6 +30,8 @@ export default function Home() {
         <ProductsSection />
         <ServicesSection />
         <CustomersSection />
+        <ReviewsSection />
+        <FaqSection />
         <ContactSection />
       </main>
 
